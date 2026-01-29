@@ -9,6 +9,7 @@ class MyHomePage extends StatefulWidget {
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
+  
 }
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -16,66 +17,30 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-
+    
     return Scaffold(
+      
       appBar: AppBar(
-
-        backgroundColor: const Color.fromARGB(255, 243, 108, 67),
+        
+        backgroundColor:  Color.fromARGB(255, 35, 126, 229),
 
         title: Text(widget.title),
       ),
-      body: Center(
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+  expandedHeight: 200,
+  pinned: true,
+  flexibleSpace: FlexibleSpaceBar(
+    title: Text('Dynamic AppBar'),
+    background: Image.network(
+      'https://img.freepik.com/free-photo/anime-eyes-illustration_23-2151660486.jpg?w=360',
+      fit: BoxFit.cover,
+    ),
+  ),
+),
 
-        child: Column(
-          
-          children: [
-            Padding(padding: EdgeInsetsGeometry.fromLTRB(5, 5, 5, 5)),
-            SizedBox(
-              height: 50,),
-              // width: 10,
-               TextField(
-                decoration: InputDecoration(
-                  hintText: "Contact",
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                  )
-                ) ,
-              ),
-            
-            SizedBox(
-              height: 50,),
-              // width: 10,
-               TextField(
-                decoration: InputDecoration(
-                  hintText: "Name",
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                  )
-                ) ,
-              ),
-            
-            SizedBox(
-              height: 50,),
-              // width: 10,
-               TextField(
-                decoration: InputDecoration(
-                  hintText: "password",
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                  )
-                ) ,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ElevatedButton(onPressed: () {}, child: Text("Save")),
-                  ElevatedButton(onPressed: (){}, child: Text("Update")),
-                ],
-              ),
-            
-            
-          ],
-        ),
+        ],
       ),
       
     );
