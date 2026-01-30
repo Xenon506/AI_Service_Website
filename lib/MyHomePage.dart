@@ -22,19 +22,19 @@ class _MyHomePageState extends State<MyHomePage> {
       
       appBar: AppBar(
         
-        backgroundColor:  Color.fromARGB(255, 35, 126, 229),
+        // backgroundColor:  Color.fromARGB(255, 91, 159, 226),
 
-        title: Text(widget.title),
+        // title: Text(widget.title),
       ),
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-  expandedHeight: 200,
+  expandedHeight: 160,
   pinned: true,
   flexibleSpace: FlexibleSpaceBar(
-    title: Text('Dynamic AppBar'),
-    background: Image.network(
-      'https://img.freepik.com/free-photo/anime-eyes-illustration_23-2151660486.jpg?w=360',
+    title: Text(''),
+    background: Image.asset(
+      'assets/images/Dragob ball logo.jpeg',
       fit: BoxFit.cover,
     ),
   ),
