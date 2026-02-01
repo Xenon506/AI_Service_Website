@@ -1,5 +1,9 @@
+import 'package:contact_list/HomePage_Contact.dart';
+import 'package:contact_list/Solutions.dart';
 import 'package:contact_list/exploreservice.dart';
 import 'package:contact_list/getstarted.dart';
+import 'package:contact_list/homepage_Pricing.dart';
+import 'package:contact_list/product.dart';
 import 'package:flutter/material.dart';
 
 
@@ -34,51 +38,101 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
+      drawer: DrawerButtonIcon(), drawerScrimColor: Colors.black, backgroundColor:  Color.fromARGB(221, 22, 21, 21),
     );
   }
 
   AppBar _appBar() {
+    
     return AppBar(
+      
       elevation: 30,
       backgroundColor: Colors.white,
-      title: const Text(
+      centerTitle: true,
+      title:  Text(
         "AI Service",
         style: TextStyle(
           color: Colors.deepOrange,
           fontWeight: FontWeight.bold,
+          
         ),
+        // textDirection: TextDirection.rtl,
+        // textAlign: TextAlign.right,
       ),
+
       actions: [
-        _navItem("Product"),
-        _navItem("Solutions"),
-        _navItem("Pricing"),
-        _navItem("Contact"),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.deepOrange,
-            ),
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => GetStartedPage()));
-            },
-            child: const Text("Get Started"),
-          ),
-        ),
+        _navButton(context, "Product", (){
+          Navigator.push(context,
+          MaterialPageRoute(builder: (context) => Product()));
+        }),
+        _navButton(context, "Solutions", (){
+          Navigator.push(context,
+          MaterialPageRoute(builder: (context) => Solutions()));
+        }),
+        _navButton(context, "Pricing", (){
+          Navigator.push(context,
+          MaterialPageRoute(builder: (context) => HomepagePricing()));
+        }),
+        _navButton(context, "Contact", (){
+          Navigator.push(context,
+          MaterialPageRoute(builder: (context) => HomepageContact()));
+        }),
+
+
+
+        // Padding(padding: EdgeInsetsGeometry.all(6),
+        // child: ElevatedButton(
+        //   style: ElevatedButton.styleFrom(
+        //     backgroundColor: const Color.fromARGB(255, 202, 54, 9),
+        //   ),
+        //   onPressed: (){
+        //   Navigator.push(context, MaterialPageRoute(builder: (context)=> Product()));
+        // }, child: Text('Solutions', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, foreground: Paint()),),
+        // )),
+
+
+
+        // _navButton(context, "Solutions", (){
+        //   Navigator.push(context, 
+        //   MaterialPageRoute(builder: (context)=> Solutions()));
+        // }),
       ],
+      
+      
+
+      
+      // actions: [
+      //   _navItem("Product"),
+      //   _navItem("Solutions"),
+      //   _navItem("Pricing"),
+      //   _navItem("Contact"),
+      //   Padding(
+      //     padding: const EdgeInsets.symmetric(horizontal: 16),
+      //     child: ElevatedButton(
+      //       style: ElevatedButton.styleFrom(
+      //         backgroundColor: Colors.deepOrange,
+      //       ),
+      //       onPressed: () {
+      //         Navigator.push(context, MaterialPageRoute(builder: (context) => GetStartedPage()));
+      //       },
+      //       child: const Text("Get Started"),
+      //     ),
+      //   ),
+      // ],
     );
   }
 
-  Widget _navItem(String text) {
+  Widget _navButton(BuildContext context, String title, VoidCallback onPressed) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12),
-      child: Center(
-        child: Text(
-          text,
-          style:  TextStyle(color: Color.fromARGB(221, 9, 9, 9)),
-        ),
-      ),
-    );
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.black,
+          elevation: 2,
+        )
+      ,onPressed: onPressed, child: Text(title),
+    ));
   }
 }
 
@@ -111,16 +165,16 @@ class HeroSection extends StatelessWidget {
                 ),
                  SizedBox(height: 16),
                  Text(
-                  "Build and deploy\nintelligent AI services",
+                  "Build, Deploy & Scale AI Solutions for Real-World Impact",
                   style: TextStyle(
                     color: Colors.blueGrey,
                     fontSize: 46,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(height: 20),
+                // const SizedBox(height: 20),
                 const Text(
-                  "Create scalable, secure and production-ready AI solutions\nfor real-world applications.",
+                  "From chatbots to predictive analytics,\nWe help businesses turn data into decisions.",
                   style: TextStyle(fontSize: 18, color: Colors.black54),
                 ),
                 const SizedBox(height: 30),
@@ -128,22 +182,22 @@ class HeroSection extends StatelessWidget {
                   children: [
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.deepOrange,
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 32,
-                          vertical: 16,
-                        ),
+                      //   backgroundColor: const Color.fromARGB(255, 231, 220, 217),
+                      //   padding: const EdgeInsets.symmetric(
+                      //     horizontal: 32,
+                      //     vertical: 16,
+                      //   ),
                       ),
                       onPressed: () {
                         Navigator.push(context, 
                         MaterialPageRoute(builder: (context)=> ExploreservicePage()));
                       },
-                      child: const Text("Explore Services"),
+                      child: const Text("Explore Services",style: TextStyle(color: Colors.white, fontSize: 16),),
                     ),
                     const SizedBox(width: 20),
-                    OutlinedButton(
+                    ElevatedButton(
                       onPressed: () {},
-                      child: const Text("Contact Sales"),
+                      child: const Text("Contact Sales",style: TextStyle(color: Colors.white, fontSize: 16),),
                     ),
                   ],
                 )
@@ -157,7 +211,7 @@ class HeroSection extends StatelessWidget {
             //   size: 260,
             //   color: Colors.orange.shade200,
             // ),
-            child: Image.asset('assets/images/Dragob ball logo.jpeg'),
+            child: Image.asset('assets/images/ai2.jpeg'),
           )
         ],
       ),

@@ -16,7 +16,7 @@ class _ExploreservicePageState extends State<ExploreservicePage> {
         height: double.infinity,
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.white, Color(0xFFFFF3E8)],
+            colors: [Color.fromARGB(255, 17, 17, 17), Color(0xFFFFF3E8)],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
@@ -36,7 +36,7 @@ class _ExploreservicePageState extends State<ExploreservicePage> {
               const SizedBox(height: 12),
               const Text(
                 "Powerful AI capabilities designed for real-world applications",
-                style: TextStyle(color: Colors.black54, fontSize: 16),
+                style: TextStyle(color: Colors.black54, fontSize: 16, fontWeight: FontWeight.bold),
               ),
 
               const SizedBox(height: 50),
