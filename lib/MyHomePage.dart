@@ -1,3 +1,5 @@
+import 'package:contact_list/exploreservice.dart';
+import 'package:contact_list/getstarted.dart';
 import 'package:flutter/material.dart';
 
 
@@ -37,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   AppBar _appBar() {
     return AppBar(
-      elevation: 0,
+      elevation: 30,
       backgroundColor: Colors.white,
       title: const Text(
         "AI Service",
@@ -57,7 +59,9 @@ class _MyHomePageState extends State<MyHomePage> {
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.deepOrange,
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => GetStartedPage()));
+            },
             child: const Text("Get Started"),
           ),
         ),
@@ -71,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Center(
         child: Text(
           text,
-          style: const TextStyle(color: Colors.black87),
+          style:  TextStyle(color: Color.fromARGB(221, 9, 9, 9)),
         ),
       ),
     );
@@ -98,17 +102,18 @@ class HeroSection extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
+                 Text(
                   "ARTIFICIAL INTELLIGENCE",
                   style: TextStyle(
                     color: Colors.deepOrange,
                     letterSpacing: 2,
                   ),
                 ),
-                const SizedBox(height: 16),
-                const Text(
+                 SizedBox(height: 16),
+                 Text(
                   "Build and deploy\nintelligent AI services",
                   style: TextStyle(
+                    color: Colors.blueGrey,
                     fontSize: 46,
                     fontWeight: FontWeight.bold,
                   ),
@@ -129,7 +134,10 @@ class HeroSection extends StatelessWidget {
                           vertical: 16,
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(context, 
+                        MaterialPageRoute(builder: (context)=> ExploreservicePage()));
+                      },
                       child: const Text("Explore Services"),
                     ),
                     const SizedBox(width: 20),
@@ -144,11 +152,12 @@ class HeroSection extends StatelessWidget {
           ),
           const SizedBox(width: 40),
           Expanded(
-            child: Icon(
-              Icons.auto_graph,
-              size: 260,
-              color: Colors.orange.shade200,
-            ),
+            // child: Icon(
+            //   Icons.auto_graph,
+            //   size: 260,
+            //   color: Colors.orange.shade200,
+            // ),
+            child: Image.asset('assets/images/Dragob ball logo.jpeg'),
           )
         ],
       ),
@@ -165,7 +174,7 @@ class MetricsSection extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 60),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: const [
+        children:  [
           _Metric("44%", "Accuracy Improvement"),
           _Metric("\$10M+", "Productivity Gains"),
           _Metric("96%", "Response Accuracy"),
@@ -179,7 +188,7 @@ class _Metric extends StatelessWidget {
   final String value;
   final String label;
 
-  const _Metric(this.value, this.label);
+   const _Metric(this.value, this.label);
 
   @override
   Widget build(BuildContext context) {
@@ -190,7 +199,7 @@ class _Metric extends StatelessWidget {
           style: const TextStyle(
             fontSize: 36,
             fontWeight: FontWeight.bold,
-            color: Colors.deepOrange,
+            color: Color.fromARGB(255, 248, 108, 65),
           ),
         ),
         const SizedBox(height: 8),
@@ -254,7 +263,7 @@ Widget _card(IconData icon, String title) {
     width: 260,
     padding: const EdgeInsets.all(24),
     decoration: BoxDecoration(
-      color: Colors.white,
+      color: const Color.fromARGB(255, 121, 101, 101),
       borderRadius: BorderRadius.circular(16),
       boxShadow: [
         BoxShadow(
@@ -283,6 +292,7 @@ class FooterSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      // width: 800,
       padding: const EdgeInsets.all(40),
       color: Colors.black87,
       child: const Column(
@@ -323,7 +333,8 @@ class PricingSection extends StatelessWidget {
           const SizedBox(height: 12),
           const Text(
             "Choose a plan that fits your AI needs",
-            style: TextStyle(fontSize: 16, color: Colors.black54),
+            style: TextStyle(fontSize: 26, color: Colors.black54,),
+            
           ),
           const SizedBox(height: 60),
 
