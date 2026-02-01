@@ -326,9 +326,9 @@ class PricingSection extends StatelessWidget {
       ),
       child: Column(
         children: [
-          const Text(
+           Text(
             "Pricing Plans",
-            style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold, color: const Color.fromARGB(255, 17, 16, 16), textBaseline: TextBaseline.ideographic),
           ),
           const SizedBox(height: 12),
           const Text(
@@ -342,7 +342,7 @@ class PricingSection extends StatelessWidget {
             spacing: 30,
             runSpacing: 30,
             alignment: WrapAlignment.center,
-            children: const [
+            children:  [
               PricingCard(
                 title: "Starter",
                 price: "₹0",
@@ -389,6 +389,7 @@ class PricingCard extends StatelessWidget {
   final String subtitle;
   final List<String> features;
   final bool isPopular;
+  
 
   const PricingCard({
     super.key,
@@ -405,7 +406,7 @@ class PricingCard extends StatelessWidget {
       width: 300,
       padding: const EdgeInsets.all(30),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: const Color.fromARGB(255, 14, 14, 14),
         borderRadius: BorderRadius.circular(20),
         border: isPopular
             ? Border.all(color: Colors.deepOrange, width: 2)
@@ -413,7 +414,7 @@ class PricingCard extends StatelessWidget {
         boxShadow: const [
           BoxShadow(
             blurRadius: 25,
-            color: Colors.black12,
+            color: Color.fromARGB(31, 240, 234, 234),
           ),
         ],
       ),
@@ -426,7 +427,7 @@ class PricingCard extends StatelessWidget {
                 color: Colors.deepOrange,
                 borderRadius: BorderRadius.circular(20),
               ),
-              child: const Text(
+              child:  Text(
                 "MOST POPULAR",
                 style: TextStyle(color: Colors.white, fontSize: 12),
               ),
@@ -438,7 +439,7 @@ class PricingCard extends StatelessWidget {
             style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 10),
-          Text(
+          Text( 
             price,
             style: const TextStyle(
               fontSize: 32,

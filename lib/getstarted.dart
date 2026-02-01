@@ -26,12 +26,12 @@ class _GetStartedPageState extends State<GetStartedPage> {
             width: 420,
             padding: const EdgeInsets.all(40),
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: const Color.fromARGB(255, 21, 20, 20),
               borderRadius: BorderRadius.circular(20),
               boxShadow: const [
                 BoxShadow(
                   blurRadius: 30,
-                  color: Colors.black12,
+                  color: Color.fromARGB(0, 236, 100, 37),
                 ),
               ],
             ),
