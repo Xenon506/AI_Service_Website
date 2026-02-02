@@ -36,7 +36,7 @@ class _ExploreservicePageState extends State<ExploreservicePage> {
               const SizedBox(height: 12),
               const Text(
                 "Powerful AI capabilities designed for real-world applications",
-                style: TextStyle(color: Colors.black54, fontSize: 16, fontWeight: FontWeight.bold),
+                style: TextStyle(color: Colors.black54, fontSize: 20, fontWeight: FontWeight.bold,),
               ),
 
               const SizedBox(height: 50),
@@ -79,7 +79,7 @@ class _ExploreservicePageState extends State<ExploreservicePage> {
               // ---------- CTA ----------
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.deepOrange,
+                  backgroundColor: Colors.deepOrange[400],
                   padding:
                       const EdgeInsets.symmetric(horizontal: 40, vertical: 18),
                   shape: RoundedRectangleBorder(
@@ -89,9 +89,9 @@ class _ExploreservicePageState extends State<ExploreservicePage> {
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                child: const Text(
+                child:  Text(
                   "Get Started",
-                  style: TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: 16,foreground: Paint()),
                 ),
               ),
             ],
@@ -146,7 +146,7 @@ class _ExploreservicePageState extends State<ExploreservicePage> {
           const SizedBox(height: 10),
           Text(
             description,
-            style: const TextStyle(color: Colors.black54),
+            style:  TextStyle(color: Colors.black54),
           ),
         ],
       ),

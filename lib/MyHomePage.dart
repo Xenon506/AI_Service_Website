@@ -78,7 +78,18 @@ class _MyHomePageState extends State<MyHomePage> {
           MaterialPageRoute(builder: (context) => HomepageContact()));
         }),
 
-
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.deepOrange,
+            ),
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => GetStartedPage()));
+            },
+            child: const Text("Get Started"),
+          ),
+        ),
 
         // Padding(padding: EdgeInsetsGeometry.all(6),
         // child: ElevatedButton(
@@ -159,6 +170,7 @@ class HeroSection extends StatelessWidget {
                  Text(
                   "ARTIFICIAL INTELLIGENCE",
                   style: TextStyle(
+                    fontSize: 20,
                     color: Colors.deepOrange,
                     letterSpacing: 2,
                   ),
@@ -168,14 +180,14 @@ class HeroSection extends StatelessWidget {
                   "Build, Deploy & Scale AI Solutions for Real-World Impact",
                   style: TextStyle(
                     color: Colors.blueGrey,
-                    fontSize: 46,
+                    fontSize: 56,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 // const SizedBox(height: 20),
                 const Text(
                   "From chatbots to predictive analytics,\nWe help businesses turn data into decisions.",
-                  style: TextStyle(fontSize: 18, color: Colors.black54),
+                  style: TextStyle(fontSize: 28, color: Colors.black54),
                 ),
                 const SizedBox(height: 30),
                 Row(
@@ -194,7 +206,7 @@ class HeroSection extends StatelessWidget {
                       },
                       child: const Text("Explore Services",style: TextStyle(color: Colors.white, fontSize: 16),),
                     ),
-                    const SizedBox(width: 20),
+                     SizedBox(width: 10),
                     ElevatedButton(
                       onPressed: () {},
                       child: const Text("Contact Sales",style: TextStyle(color: Colors.white, fontSize: 16),),
