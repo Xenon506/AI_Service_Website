@@ -318,7 +318,7 @@ Widget _card(IconData icon, String title) {
     padding: const EdgeInsets.all(24),
     decoration: BoxDecoration(
       color: const Color.fromARGB(255, 121, 101, 101),
-      borderRadius: BorderRadius.circular(16),
+      borderRadius: BorderRadius.circular(250),
       boxShadow: [
         BoxShadow(
           blurRadius: 20,
@@ -328,7 +328,7 @@ Widget _card(IconData icon, String title) {
     ),
     child: Column(
       children: [
-        Icon(icon, size: 50, color: Colors.deepOrange),
+        Icon(icon, size: 50, color: Colors.deepOrange[400]),
         const SizedBox(height: 20),
         Text(
           title,
@@ -465,7 +465,7 @@ class PricingCard extends StatelessWidget {
         border: isPopular
             ? Border.all(color: Colors.deepOrange, width: 2)
             : null,
-        boxShadow: const [
+        boxShadow: [
           BoxShadow(
             blurRadius: 25,
             color: Color.fromARGB(31, 240, 234, 234),
@@ -478,19 +478,19 @@ class PricingCard extends StatelessWidget {
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               decoration: BoxDecoration(
-                color: Colors.deepOrange,
+                color: Colors.deepOrange[400],
                 borderRadius: BorderRadius.circular(20),
               ),
               child:  Text(
                 "MOST POPULAR",
-                style: TextStyle(color: Colors.white, fontSize: 12),
+                style: TextStyle(color: Colors.white, fontSize: 15),
               ),
             ),
 
           const SizedBox(height: 20),
           Text(
             title,
-            style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 10),
           Text( 
@@ -514,8 +514,8 @@ class PricingCard extends StatelessWidget {
               child: Row(
                 children: [
                   const Icon(Icons.check_circle,
-                      size: 18, color: Colors.deepOrange),
-                  const SizedBox(width: 10),
+                      size: 18, color: Color(0xFFFF7043)),
+                  SizedBox(width: 10),
                   Expanded(child: Text(f)),
                 ],
               ),
