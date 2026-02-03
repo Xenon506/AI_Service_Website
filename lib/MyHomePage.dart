@@ -5,6 +5,7 @@ import 'package:contact_list/getstarted.dart';
 import 'package:contact_list/homepage_Pricing.dart';
 import 'package:contact_list/product.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart' show FaIcon, FontAwesomeIcons;
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -156,7 +157,7 @@ class HeroSection extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 100),
       decoration: const BoxDecoration(
         gradient: LinearGradient(
-          colors: [Color(0xFFFFF8F2), Colors.white],
+          colors: [Color.fromARGB(255, 250, 220, 193), Color.fromARGB(255, 255, 255, 255)],
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
         ),
@@ -228,11 +229,6 @@ class HeroSection extends StatelessWidget {
           ),
           const SizedBox(width: 40),
           Expanded(
-            // child: Icon(
-            //   Icons.auto_graph,
-            //   size: 260,
-            //   color: Colors.orange.shade200,
-            // ),
             child: Image.asset('assets/images/ai2.jpeg'),
           ),
         ],
@@ -351,27 +347,273 @@ Widget _card(IconData icon, String title) {
   );
 }
 
+
+
+
 class FooterSection extends StatelessWidget {
   const FooterSection({super.key});
 
   @override
   Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final isMobile = constraints.maxWidth < 600;
+
+        return Column(
+          children: [
+            // ================= TOP SECTION =================
+            Container(
+              color: const Color.fromARGB(255, 243, 121, 55),
+              padding: EdgeInsets.symmetric(
+                vertical: 60,
+                horizontal: isMobile ? 20 : 100,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  isMobile
+                      ? _buildMobileNavColumns()
+                      : _buildDesktopNavColumns(),
+                  const SizedBox(height: 60),
+                  _buildNewsletterSection(isMobile),
+                ],
+              ),
+            ),
+
+            // ================= BOTTOM SECTION =================
+            Container(
+              color: const Color(0xFF111111),
+              padding: EdgeInsets.symmetric(
+                vertical: 25,
+                horizontal: isMobile ? 20 : 100,
+              ),
+              child: _buildLegalAndSocial(isMobile),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  // ---------------- NAVIGATION ----------------
+  Widget _buildDesktopNavColumns() {
+    return const Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _FooterColumn(title: "MEDIA", links: [
+          "News",
+          "In-Depth",
+          "Startup Spotlight",
+          "Newsletter",
+          "Resources",
+          "Glossary"
+        ]),
+        _FooterColumn(title: "DATALABS", links: [
+          "Company",
+          "Investor",
+          "Research Reports",
+          "Industry",
+          "Location"
+        ]),
+        _FooterColumn(
+            title: "COURSES", links: ["D2CX", "MANAGEMENTX", "ANGELX"]),
+        _FooterColumn(title: "EVENTS", links: [
+          "GenAI Summit 2025",
+          "MoneyX 2025",
+          "D2C Retreat 2025"
+        ]),
+        _FooterColumn(
+            title: "MORE", links: ["Partner With Us", "About Us", "Contact"]),
+      ],
+    );
+  }
+
+  Widget _buildMobileNavColumns() {
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _FooterColumn(title: "MEDIA", links: ["News", "In-Depth", "Newsletter"]),
+        SizedBox(height: 30),
+        _FooterColumn(title: "DATALABS", links: ["Company", "Investor"]),
+        SizedBox(height: 30),
+        _FooterColumn(title: "COURSES", links: ["D2CX", "ANGELX"]),
+        SizedBox(height: 30),
+        _FooterColumn(title: "EVENTS", links: ["GenAI Summit", "MoneyX"]),
+        SizedBox(height: 30),
+        _FooterColumn(title: "MORE", links: ["About Us", "Contact"]),
+      ],
+    );
+  }
+
+  // ---------------- NEWSLETTER ----------------
+  Widget _buildNewsletterSection(bool isMobile) {
     return Container(
-      width: double.infinity, // Ensures background color stretches horizontally
-      padding: const EdgeInsets.all(40),
-      color: Colors.black87,
-      child: Column(
-        mainAxisSize: MainAxisSize.min, // Takes only necessary vertical space
-        children: const [
-          Text("Contact Us", style: TextStyle(color: Colors.white, fontSize: 20)),
-          SizedBox(height: 10),
-          Text("support@aiservice.com", style: TextStyle(color: Colors.white70)),
-          Text("+91 98765 43210", style: TextStyle(color: Colors.white70)),
+      padding: const EdgeInsets.all(30),
+      decoration: BoxDecoration(
+        color:  Colors.black54,
+        borderRadius: BorderRadius.circular(12),
+        boxShadow: const [
+          BoxShadow(color: Colors.black12, blurRadius: 10),
         ],
       ),
+      child: isMobile
+          ? Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ..._newsletterContentWidgets(),
+                const SizedBox(height: 20),
+                ..._newsletterFormWidgets(),
+              ],
+            )
+          : Row(
+              children: [
+                Expanded(child: Column(children: _newsletterContentWidgets())),
+                const SizedBox(width: 40),
+                Expanded(child: Row(children: _newsletterFormWidgets())),
+              ],
+            ),
+    );
+  }
+
+  List<Widget> _newsletterContentWidgets() {
+    return [
+      // Image.asset('assets.ai1.jpeg'),
+      Text(
+        "Subscribe to our Newsletter",
+        style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+      ),
+      SizedBox(height: 10),
+      Text(
+        "Get weekly insights, startup stories & deep tech analysis.",
+        style: TextStyle(color: Colors.black54),
+      ),
+    ];
+  }
+
+  List<Widget> _newsletterFormWidgets() {
+    return [
+      Expanded(
+        child: TextField(
+          decoration: InputDecoration(
+            hintText: "Enter your email",
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+          ),
+        ),
+      ),
+      const SizedBox(width: 10),
+      ElevatedButton(
+        onPressed: () {},
+        style: ElevatedButton.styleFrom(
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 18),
+          backgroundColor: Colors.black,
+        ),
+        child: const Text("Subscribe"),
+      ),
+    ];
+  }
+
+  // ---------------- LEGAL & SOCIAL ----------------
+  Widget _buildLegalAndSocial(bool isMobile) {
+    return isMobile
+        ? Column(
+            children: [
+              _buildLegalLinks(isMobile),
+              const SizedBox(height: 15),
+              _buildSocialIcons(),
+            ],
+          )
+        : Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              _buildLegalLinks(isMobile),
+              _buildSocialIcons(),
+            ],
+          );
+  }
+
+  Widget _buildLegalLinks(bool isMobile) {
+    return Wrap(
+      spacing: isMobile ? 15 : 30,
+      children: const [
+        _LegalText("Terms"),
+        _LegalText("Privacy"),
+        _LegalText("Disclaimer"),
+        _LegalText("Refund Policy"),
+      ],
+    );
+  }
+
+  Widget _buildSocialIcons() {
+    return Row(
+      children: const [
+        _SocialIcon(FontAwesomeIcons.xTwitter),
+        _SocialIcon(FontAwesomeIcons.linkedinIn),
+        _SocialIcon(FontAwesomeIcons.instagram),
+        _SocialIcon(FontAwesomeIcons.youtube),
+      ],
     );
   }
 }
+
+// ================= HELPER WIDGETS =================
+class _FooterColumn extends StatelessWidget {
+  final String title;
+  final List<String> links;
+
+  const _FooterColumn({required this.title, required this.links});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          title,
+          style: const TextStyle(
+              fontWeight: FontWeight.bold, fontSize: 14, letterSpacing: 1),
+        ),
+        const SizedBox(height: 12),
+        ...links.map(
+          (link) => Padding(
+            padding: const EdgeInsets.only(bottom: 8),
+            child: Text(
+              link,
+              style: const TextStyle(color: Colors.black54),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _LegalText extends StatelessWidget {
+  final String text;
+  const _LegalText(this.text);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(text,
+        style: const TextStyle(color: Colors.white70, fontSize: 13));
+  }
+}
+
+class _SocialIcon extends StatelessWidget {
+  final IconData icon;
+  const _SocialIcon(this.icon);
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      icon: FaIcon(icon, color: Colors.white70, size: 18),
+      onPressed: () {},
+    );
+  }
+}
+
 
 class PricingSection extends StatelessWidget {
   const PricingSection({super.key});
