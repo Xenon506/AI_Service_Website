@@ -6,8 +6,6 @@ import 'package:contact_list/homepage_Pricing.dart';
 import 'package:contact_list/product.dart';
 import 'package:flutter/material.dart';
 
-
-
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
@@ -15,15 +13,11 @@ class MyHomePage extends StatefulWidget {
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
-  
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  
-
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       appBar: _appBar(),
       body: SingleChildScrollView(
@@ -38,54 +32,59 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      drawer: DrawerButtonIcon(), drawerScrimColor: Colors.black, backgroundColor:  Color.fromARGB(221, 22, 21, 21),
+      drawer: DrawerButtonIcon(),
+      drawerScrimColor: Colors.black,
+      backgroundColor: Color.fromARGB(221, 22, 21, 21),
     );
   }
 
   AppBar _appBar() {
-    
     return AppBar(
-      
       elevation: 30,
       backgroundColor: Colors.white,
       centerTitle: true,
-      title:  Text(
+      title: Text(
         "AI Service",
-        style: TextStyle(
-          color: Colors.deepOrange,
-          fontWeight: FontWeight.bold,
-          
-        ),
+        style: TextStyle(color: Colors.deepOrange, fontWeight: FontWeight.bold),
         // textDirection: TextDirection.rtl,
         // textAlign: TextAlign.right,
       ),
 
       actions: [
-        _navButton(context, "Product", (){
-          Navigator.push(context,
-          MaterialPageRoute(builder: (context) => Product()));
+        _navButton(context, "Product", () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Product()),
+          );
         }),
-        _navButton(context, "Solutions", (){
-          Navigator.push(context,
-          MaterialPageRoute(builder: (context) => Solutions()));
+        _navButton(context, "Solutions", () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Solutions()),
+          );
         }),
-        _navButton(context, "Pricing", (){
-          Navigator.push(context,
-          MaterialPageRoute(builder: (context) => HomepagePricing()));
+        _navButton(context, "Pricing", () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => HomepagePricing()),
+          );
         }),
-        _navButton(context, "Contact", (){
-          Navigator.push(context,
-          MaterialPageRoute(builder: (context) => HomepageContact()));
+        _navButton(context, "Contact", () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => HomepageContact()),
+          );
         }),
 
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.deepOrange,
-            ),
+            style: ElevatedButton.styleFrom(backgroundColor: Colors.deepOrange),
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => GetStartedPage()));
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => GetStartedPage()),
+              );
             },
             child: const Text("Get Started"),
           ),
@@ -101,17 +100,12 @@ class _MyHomePageState extends State<MyHomePage> {
         // }, child: Text('Solutions', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, foreground: Paint()),),
         // )),
 
-
-
         // _navButton(context, "Solutions", (){
-        //   Navigator.push(context, 
+        //   Navigator.push(context,
         //   MaterialPageRoute(builder: (context)=> Solutions()));
         // }),
       ],
-      
-      
 
-      
       // actions: [
       //   _navItem("Product"),
       //   _navItem("Solutions"),
@@ -133,7 +127,11 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget _navButton(BuildContext context, String title, VoidCallback onPressed) {
+  Widget _navButton(
+    BuildContext context,
+    String title,
+    VoidCallback onPressed,
+  ) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12),
       child: ElevatedButton(
@@ -141,9 +139,11 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: Colors.white,
           foregroundColor: Colors.black,
           elevation: 2,
-        )
-      ,onPressed: onPressed, child: Text(title),
-    ));
+        ),
+        onPressed: onPressed,
+        child: Text(title),
+      ),
+    );
   }
 }
 
@@ -167,7 +167,7 @@ class HeroSection extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                 Text(
+                Text(
                   "ARTIFICIAL INTELLIGENCE",
                   style: TextStyle(
                     fontSize: 20,
@@ -175,8 +175,8 @@ class HeroSection extends StatelessWidget {
                     letterSpacing: 2,
                   ),
                 ),
-                 SizedBox(height: 16),
-                 Text(
+                SizedBox(height: 16),
+                Text(
                   "Build, Deploy & Scale AI Solutions for Real-World Impact",
                   style: TextStyle(
                     color: Colors.blueGrey,
@@ -194,25 +194,35 @@ class HeroSection extends StatelessWidget {
                   children: [
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                      //   backgroundColor: const Color.fromARGB(255, 231, 220, 217),
-                      //   padding: const EdgeInsets.symmetric(
-                      //     horizontal: 32,
-                      //     vertical: 16,
-                      //   ),
+                        //   backgroundColor: const Color.fromARGB(255, 231, 220, 217),
+                        //   padding: const EdgeInsets.symmetric(
+                        //     horizontal: 32,
+                        //     vertical: 16,
+                        //   ),
                       ),
                       onPressed: () {
-                        Navigator.push(context, 
-                        MaterialPageRoute(builder: (context)=> ExploreservicePage()));
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ExploreservicePage(),
+                          ),
+                        );
                       },
-                      child: const Text("Explore Services",style: TextStyle(color: Colors.white, fontSize: 16),),
+                      child: const Text(
+                        "Explore Services",
+                        style: TextStyle(color: Colors.white, fontSize: 16),
+                      ),
                     ),
-                     SizedBox(width: 10),
+                    SizedBox(width: 10),
                     ElevatedButton(
                       onPressed: () {},
-                      child: const Text("Contact Sales",style: TextStyle(color: Colors.white, fontSize: 16),),
+                      child: const Text(
+                        "Contact Sales",
+                        style: TextStyle(color: Colors.white, fontSize: 16),
+                      ),
                     ),
                   ],
-                )
+                ),
               ],
             ),
           ),
@@ -224,7 +234,7 @@ class HeroSection extends StatelessWidget {
             //   color: Colors.orange.shade200,
             // ),
             child: Image.asset('assets/images/ai2.jpeg'),
-          )
+          ),
         ],
       ),
     );
@@ -240,7 +250,7 @@ class MetricsSection extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 60),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children:  [
+        children: [
           _Metric("44%", "Accuracy Improvement"),
           _Metric("\$10M+", "Productivity Gains"),
           _Metric("96%", "Response Accuracy"),
@@ -254,7 +264,7 @@ class _Metric extends StatelessWidget {
   final String value;
   final String label;
 
-   const _Metric(this.value, this.label);
+  const _Metric(this.value, this.label);
 
   @override
   Widget build(BuildContext context) {
@@ -280,15 +290,12 @@ class ServicesSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _section(
-      "AI Services",
-      [
-        _card(Icons.chat, "AI Chatbots"),
-        _card(Icons.analytics, "Predictive Analytics"),
-        _card(Icons.image, "Computer Vision"),
-        _card(Icons.description, "Document AI"),
-      ],
-    );
+    return _section("AI Services", [
+      _card(Icons.chat, "AI Chatbots"),
+      _card(Icons.analytics, "Predictive Analytics"),
+      _card(Icons.image, "Computer Vision"),
+      _card(Icons.description, "Document AI"),
+    ]);
   }
 }
 
@@ -297,14 +304,11 @@ class BenefitsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return _section(
-      "Platform Benefits",
-      [
-        _card(Icons.security, "Enterprise Security"),
-        _card(Icons.speed, "High Performance"),
-        _card(Icons.settings, "Custom AI Models"),
-      ],
-    );
+    return _section("Platform Benefits", [
+      _card(Icons.security, "Enterprise Security"),
+      _card(Icons.speed, "High Performance"),
+      _card(Icons.settings, "Custom AI Models"),
+    ]);
   }
 }
 
@@ -331,12 +335,7 @@ Widget _card(IconData icon, String title) {
     decoration: BoxDecoration(
       color: const Color.fromARGB(255, 121, 101, 101),
       borderRadius: BorderRadius.circular(250),
-      boxShadow: [
-        BoxShadow(
-          blurRadius: 20,
-          color: Colors.black12,
-        ),
-      ],
+      boxShadow: [BoxShadow(blurRadius: 20, color: Colors.black12)],
     ),
     child: Column(
       children: [
@@ -358,15 +357,13 @@ class FooterSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // width: 800,
+      width: double.infinity, // Ensures background color stretches horizontally
       padding: const EdgeInsets.all(40),
       color: Colors.black87,
-      child: const Column(
-        children: [
-          Text(
-            "Contact Us",
-            style: TextStyle(color: Colors.white, fontSize: 20),
-          ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min, // Takes only necessary vertical space
+        children: const [
+          Text("Contact Us", style: TextStyle(color: Colors.white, fontSize: 20)),
           SizedBox(height: 10),
           Text("support@aiservice.com", style: TextStyle(color: Colors.white70)),
           Text("+91 98765 43210", style: TextStyle(color: Colors.white70)),
@@ -392,15 +389,19 @@ class PricingSection extends StatelessWidget {
       ),
       child: Column(
         children: [
-           Text(
+          Text(
             "Pricing Plans",
-            style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold, color: const Color.fromARGB(255, 17, 16, 16), textBaseline: TextBaseline.ideographic),
+            style: TextStyle(
+              fontSize: 36,
+              fontWeight: FontWeight.bold,
+              color: const Color.fromARGB(255, 17, 16, 16),
+              textBaseline: TextBaseline.ideographic,
+            ),
           ),
           const SizedBox(height: 12),
           const Text(
             "Choose a plan that fits your AI needs",
-            style: TextStyle(fontSize: 26, color: Colors.black54,),
-            
+            style: TextStyle(fontSize: 26, color: Colors.black54),
           ),
           const SizedBox(height: 60),
 
@@ -408,7 +409,7 @@ class PricingSection extends StatelessWidget {
             spacing: 30,
             runSpacing: 30,
             alignment: WrapAlignment.center,
-            children:  [
+            children: [
               PricingCard(
                 title: "Starter",
                 price: "₹0",
@@ -449,13 +450,13 @@ class PricingSection extends StatelessWidget {
     );
   }
 }
+
 class PricingCard extends StatelessWidget {
   final String title;
   final String price;
   final String subtitle;
   final List<String> features;
   final bool isPopular;
-  
 
   const PricingCard({
     super.key,
@@ -478,10 +479,7 @@ class PricingCard extends StatelessWidget {
             ? Border.all(color: Colors.deepOrange, width: 2)
             : null,
         boxShadow: [
-          BoxShadow(
-            blurRadius: 25,
-            color: Color.fromARGB(31, 240, 234, 234),
-          ),
+          BoxShadow(blurRadius: 25, color: Color.fromARGB(31, 240, 234, 234)),
         ],
       ),
       child: Column(
@@ -493,7 +491,7 @@ class PricingCard extends StatelessWidget {
                 color: Colors.deepOrange[400],
                 borderRadius: BorderRadius.circular(20),
               ),
-              child:  Text(
+              child: Text(
                 "MOST POPULAR",
                 style: TextStyle(color: Colors.white, fontSize: 15),
               ),
@@ -505,7 +503,7 @@ class PricingCard extends StatelessWidget {
             style: const TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 10),
-          Text( 
+          Text(
             price,
             style: const TextStyle(
               fontSize: 32,
@@ -514,10 +512,7 @@ class PricingCard extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 6),
-          Text(
-            subtitle,
-            style: const TextStyle(color: Colors.black54),
-          ),
+          Text(subtitle, style: const TextStyle(color: Colors.black54)),
           const SizedBox(height: 30),
 
           ...features.map(
@@ -525,8 +520,11 @@ class PricingCard extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 6),
               child: Row(
                 children: [
-                  const Icon(Icons.check_circle,
-                      size: 18, color: Color(0xFFFF7043)),
+                  const Icon(
+                    Icons.check_circle,
+                    size: 18,
+                    color: Color(0xFFFF7043),
+                  ),
                   SizedBox(width: 10),
                   Expanded(child: Text(f)),
                 ],
@@ -537,10 +535,8 @@ class PricingCard extends StatelessWidget {
           const SizedBox(height: 30),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-              backgroundColor:
-                  isPopular ? Colors.deepOrange : Colors.black87,
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 30, vertical: 14),
+              backgroundColor: isPopular ? Colors.deepOrange : Colors.black87,
+              padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 14),
             ),
             onPressed: () {},
             child: const Text("Get Started"),
@@ -550,5 +546,3 @@ class PricingCard extends StatelessWidget {
     );
   }
 }
-
-
