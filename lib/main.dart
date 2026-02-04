@@ -20,13 +20,12 @@ class MyApp extends StatelessWidget {
     textTheme: GoogleFonts.robotoMonoTextTheme(
       ThemeData.dark().textTheme, // Base it on the dark theme
     ).copyWith(
-      // 2. Overriding ONLY displayLarge with your specific AI style
+      // 2. Overriding ONLY displayLarge with your specific style
       displayLarge: TextStyle(
         fontSize: 20,
         color: Colors.deepOrange,
         letterSpacing: 2,
         fontWeight: FontWeight.bold,
-        // No need for fontFamily here; GoogleFonts already handled it above
       ),
     ),
   ),

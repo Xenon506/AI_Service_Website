@@ -8,12 +8,17 @@ class Solutions extends StatefulWidget {
 }
 
 class _SolutionsState extends State<Solutions> {
+  final List<bool> _isCardExpanded = [false, false, false, false];
+
   @override
   Widget build(BuildContext context) {
-        return Scaffold(
-      backgroundColor:  Color(0xFFF8F9FA), 
+    return Scaffold(
+      backgroundColor: Color(0xFFF8F9FA),
       appBar: AppBar(
-        title: const Text("Our Solutions", style: TextStyle(color: Colors.black87)),
+        title: const Text(
+          "Our Solutions",
+          style: TextStyle(color: Colors.black87),
+        ),
         backgroundColor: Colors.white,
         elevation: 0,
         iconTheme: const IconThemeData(color: Colors.black87),
@@ -38,7 +43,11 @@ class _SolutionsState extends State<Solutions> {
         children: [
           const Text(
             "Tailored AI Solutions",
-            style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold, color: Colors.black87),
+            style: TextStyle(
+              fontSize: 40,
+              fontWeight: FontWeight.bold,
+              color: Colors.black87,
+            ),
           ),
           const SizedBox(height: 15),
           const Text(
@@ -48,9 +57,7 @@ class _SolutionsState extends State<Solutions> {
           ),
           const SizedBox(height: 20),
           Container(height: 4, width: 60, color: Colors.deepOrange),
-          SizedBox(
-            height: 30,
-          )
+          SizedBox(height: 30),
         ],
       ),
     );
@@ -66,30 +73,51 @@ class _SolutionsState extends State<Solutions> {
         children: [
           _solutionCard(
             title: "Predictive Analytics",
-            description: "Forecast market trends and customer behavior with 99% accuracy.",
+            description:
+                "Forecast market trends and customer behavior with 99% accuracy.",
+            fulldetails: "Our full suite of predictive models uses machine learning to analyze historical data and provide accurate, actionable insights for future trends, ensuring you stay ahead of the competition.",
             icon: Icons.insights,
+            index: 0,
           ),
           _solutionCard(
             title: "NLP Chatbots",
-            description: "Human-like conversational agents for 24/7 customer support.",
+            description:
+                "Human-like conversational agents for 24/7 customer support.",
+            fulldetails:
+                "These chatbots are built on state-of-the-art NLP models, providing human-like responses and managing complex customer queries 24/7 without human intervention, drastically reducing operational costs.",
             icon: Icons.chat_bubble_outline,
+            index: 1,
           ),
           _solutionCard(
             title: "Automated Workflow",
-            description: "Replace manual data entry with intelligent AI processing units.",
+            description:
+                "Replace manual data entry with intelligent AI processing units.",
+            fulldetails: "AI workflow automation uses machine learning to streamline complex business processes, reducing errors and freeing staff for higher-value work. It adapts over time, handling document processing, email management, and data entry autonomously.",
             icon: Icons.settings_suggest,
+            index: 2,
           ),
           _solutionCard(
             title: "Computer Vision",
-            description: "Object detection and image recognition for security and retail.",
+            description:
+                "Object detection and image recognition for security and retail.",
+            fulldetails: "Object detection enables computers to interpret visual data like humans, identifying and locating objects in real-time images and videos. Key applications include autonomous navigation, security surveillance, quality control, and medical imaging analysis.",
             icon: Icons.visibility_outlined,
+            index: 3,
           ),
         ],
       ),
     );
   }
 
-  Widget _solutionCard({required String title, required String description, required IconData icon}) {
+  Widget _solutionCard({
+    required int index,
+    required String title,
+    required String description,
+    required IconData icon,
+    required String fulldetails,
+  }) {
+    // Use the state variable stored in the List using the index
+
     return Container(
       width: 350,
       padding: const EdgeInsets.all(30),
@@ -101,7 +129,7 @@ class _SolutionsState extends State<Solutions> {
             color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 20,
             offset: const Offset(0, 10),
-          )
+          ),
         ],
       ),
       child: Column(
@@ -112,14 +140,33 @@ class _SolutionsState extends State<Solutions> {
             child: Icon(icon, color: Colors.deepOrange),
           ),
           const SizedBox(height: 20),
-          Text(title, style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
+          Text(
+            title,
+            style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+          ),
           const SizedBox(height: 10),
-          Text(description, style: const TextStyle(color: Colors.black54, height: 1.5)),
+          Text(
+            description,
+            style: const TextStyle(color: Colors.black54, height: 1.5),
+          ),
           const SizedBox(height: 20),
           TextButton(
-            onPressed: () {},
-            child: const Text("Learn More →", style: TextStyle(color: Colors.deepOrange)),
-          )
+            onPressed: () {
+              // Toggle the state to rebuild the widget and show/hide details
+              setState(() {
+                _isCardExpanded[index] = !_isCardExpanded[index];
+              });
+            },
+            child: Text(_isCardExpanded[index] ? 'Collapse' : 'Learn More'),
+          ),
+
+          if (_isCardExpanded[index]) ...[
+            const SizedBox(height: 15),
+            Text(
+              fulldetails,
+              style: const TextStyle(color: Colors.black54, height: 1.6),
+            ),
+          ],
         ],
       ),
     );

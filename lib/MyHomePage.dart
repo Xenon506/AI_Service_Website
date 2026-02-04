@@ -1,3 +1,4 @@
+import 'package:contact_list/Contactwcompany.dart';
 import 'package:contact_list/HomePage_Contact.dart';
 import 'package:contact_list/Solutions.dart';
 import 'package:contact_list/exploreservice.dart';
@@ -33,9 +34,9 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      drawer: DrawerButtonIcon(),
-      drawerScrimColor: Colors.black,
-      backgroundColor: Color.fromARGB(221, 22, 21, 21),
+      // drawer: DrawerButtonIcon(),
+      // drawerScrimColor: Colors.black,
+      backgroundColor: Color.fromARGB(221, 227, 148, 69),
     );
   }
 
@@ -43,12 +44,12 @@ class _MyHomePageState extends State<MyHomePage> {
     return AppBar(
       elevation: 30,
       backgroundColor: Colors.white,
-      centerTitle: true,
+      // centerTitle: true,
       title: Text(
-        "AI Service",
+        "Home",
         style: TextStyle(color: Colors.deepOrange, fontWeight: FontWeight.bold),
-        // textDirection: TextDirection.rtl,
-        // textAlign: TextAlign.right,
+        textDirection: TextDirection.ltr,
+        // textAlign: TextAlign.left,
       ),
 
       actions: [
@@ -64,16 +65,16 @@ class _MyHomePageState extends State<MyHomePage> {
             MaterialPageRoute(builder: (context) => Solutions()),
           );
         }),
-        _navButton(context, "Pricing", () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => HomepagePricing()),
-          );
-        }),
+        // _navButton(context, "Pricing", () {
+        //   Navigator.push(
+        //     context,
+        //     MaterialPageRoute(builder: (context) => HomepagePricing()),
+        //   );
+        // }),
         _navButton(context, "Contact", () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => HomepageContact()),
+            MaterialPageRoute(builder: (context) => ConnectForSolutionsPage()),
           );
         }),
 
@@ -90,43 +91,11 @@ class _MyHomePageState extends State<MyHomePage> {
             child: const Text("Get Started"),
           ),
         ),
-
-        // Padding(padding: EdgeInsetsGeometry.all(6),
-        // child: ElevatedButton(
-        //   style: ElevatedButton.styleFrom(
-        //     backgroundColor: const Color.fromARGB(255, 202, 54, 9),
-        //   ),
-        //   onPressed: (){
-        //   Navigator.push(context, MaterialPageRoute(builder: (context)=> Product()));
-        // }, child: Text('Solutions', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500, foreground: Paint()),),
-        // )),
-
-        // _navButton(context, "Solutions", (){
-        //   Navigator.push(context,
-        //   MaterialPageRoute(builder: (context)=> Solutions()));
-        // }),
       ],
-
-      // actions: [
-      //   _navItem("Product"),
-      //   _navItem("Solutions"),
-      //   _navItem("Pricing"),
-      //   _navItem("Contact"),
-      //   Padding(
-      //     padding: const EdgeInsets.symmetric(horizontal: 16),
-      //     child: ElevatedButton(
-      //       style: ElevatedButton.styleFrom(
-      //         backgroundColor: Colors.deepOrange,
-      //       ),
-      //       onPressed: () {
-      //         Navigator.push(context, MaterialPageRoute(builder: (context) => GetStartedPage()));
-      //       },
-      //       child: const Text("Get Started"),
-      //     ),
-      //   ),
-      // ],
     );
   }
+
+
 
   Widget _navButton(
     BuildContext context,
@@ -154,7 +123,7 @@ class HeroSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 100),
+      padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 100),
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           colors: [Color.fromARGB(255, 250, 220, 193), Color.fromARGB(255, 255, 255, 255)],
@@ -171,14 +140,14 @@ class HeroSection extends StatelessWidget {
                 Text(
                   "ARTIFICIAL INTELLIGENCE",
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 24,
                     color: Colors.deepOrange,
                     letterSpacing: 2,
                   ),
                 ),
                 SizedBox(height: 16),
                 Text(
-                  "Build, Deploy & Scale AI Solutions for Real-World Impact",
+                  "Build,Deploy & Scale AI Solutions for Real-World Impact",
                   style: TextStyle(
                     color: Colors.blueGrey,
                     fontSize: 56,
@@ -205,12 +174,12 @@ class HeroSection extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => ExploreservicePage(),
+                            builder: (context) => Solutions(),
                           ),
                         );
                       },
                       child: const Text(
-                        "Explore Services",
+                        "Explore Solutions",
                         style: TextStyle(color: Colors.white, fontSize: 16),
                       ),
                     ),
@@ -271,7 +240,7 @@ class _Metric extends StatelessWidget {
           style: const TextStyle(
             fontSize: 36,
             fontWeight: FontWeight.bold,
-            color: Color.fromARGB(255, 248, 108, 65),
+            color: Color.fromARGB(255, 245, 88, 41),
           ),
         ),
         const SizedBox(height: 8),
