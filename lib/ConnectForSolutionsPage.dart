@@ -102,7 +102,7 @@ class _ConnectForSolutionsPageState extends State<ConnectForSolutionsPage>
                 width: 500,
                 padding: const EdgeInsets.all(30),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: const Color.fromARGB(255, 33, 33, 33),
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: [
                     BoxShadow(
@@ -114,7 +114,7 @@ class _ConnectForSolutionsPageState extends State<ConnectForSolutionsPage>
                 ),
                 child: Form(
                   key: _formKey,
-                  child: Column(
+                  child: Column(   
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       const Text(
@@ -198,7 +198,7 @@ class _ConnectForSolutionsPageState extends State<ConnectForSolutionsPage>
                       ElevatedButton(
                         onPressed: _submitForm,
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.deepOrange,
+                          backgroundColor: Colors.deepOrange[400],
                           padding: const EdgeInsets.symmetric(vertical: 16),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),

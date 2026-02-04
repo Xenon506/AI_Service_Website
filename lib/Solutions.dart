@@ -8,7 +8,7 @@ class Solutions extends StatefulWidget {
 }
 
 class _SolutionsState extends State<Solutions> {
-  final List<bool> _isCardExpanded = [false, false, false, false];
+  final List<bool> _isCardExpanded = [false, false, false, false, false];
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +72,7 @@ class _SolutionsState extends State<Solutions> {
         alignment: WrapAlignment.center,
         children: [
           _solutionCard(
-            title: "Predictive Analytics",
+            title: "AI Chat-Bot",
             description:
                 "Forecast market trends and customer behavior with 99% accuracy.",
             fulldetails: "Our full suite of predictive models uses machine learning to analyze historical data and provide accurate, actionable insights for future trends, ensuring you stay ahead of the competition.",
@@ -80,7 +80,7 @@ class _SolutionsState extends State<Solutions> {
             index: 0,
           ),
           _solutionCard(
-            title: "NLP Chatbots",
+            title: "HR Flows",
             description:
                 "Human-like conversational agents for 24/7 customer support.",
             fulldetails:
@@ -89,20 +89,30 @@ class _SolutionsState extends State<Solutions> {
             index: 1,
           ),
           _solutionCard(
-            title: "Automated Workflow",
+            title: "Lead Generation",
             description:
                 "Replace manual data entry with intelligent AI processing units.",
             fulldetails: "AI workflow automation uses machine learning to streamline complex business processes, reducing errors and freeing staff for higher-value work. It adapts over time, handling document processing, email management, and data entry autonomously.",
             icon: Icons.settings_suggest,
             index: 2,
           ),
+
           _solutionCard(
-            title: "Computer Vision",
+            title: "Cold Email Automation",
             description:
                 "Object detection and image recognition for security and retail.",
             fulldetails: "Object detection enables computers to interpret visual data like humans, identifying and locating objects in real-time images and videos. Key applications include autonomous navigation, security surveillance, quality control, and medical imaging analysis.",
             icon: Icons.visibility_outlined,
             index: 3,
+          ),
+
+          _solutionCard(
+            title: "Calling Automation",
+            description:
+                "Object detection and image recognition for security and retail.",
+            fulldetails: "Object detection enables computers to interpret visual data like humans, identifying and locating objects in real-time images and videos. Key applications include autonomous navigation, security surveillance, quality control, and medical imaging analysis.",
+            icon: Icons.visibility_outlined,
+            index: 4,
           ),
         ],
       ),

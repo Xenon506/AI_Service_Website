@@ -1,4 +1,5 @@
-import 'package:contact_list/Contactwcompany.dart';
+import 'package:contact_list/AboutUs.dart';
+import 'package:contact_list/ConnectForSolutionsPage.dart';
 import 'package:contact_list/HomePage_Contact.dart';
 import 'package:contact_list/Solutions.dart';
 import 'package:contact_list/exploreservice.dart';
@@ -42,15 +43,29 @@ class _MyHomePageState extends State<MyHomePage> {
 
   AppBar _appBar() {
     return AppBar(
-      elevation: 30,
+      elevation: 20,
       backgroundColor: Colors.white,
       // centerTitle: true,
-      title: Text(
-        "Home",
-        style: TextStyle(color: Colors.deepOrange, fontWeight: FontWeight.bold),
-        textDirection: TextDirection.ltr,
-        // textAlign: TextAlign.left,
+      title: Row(
+    children: [
+      Image.asset(
+        'assets/images/ai.jpeg', 
+        fit:BoxFit.cover,
+        height: 50, 
+        width: 50,
       ),
+      const SizedBox(width: 10), // Adds space between image and text
+      const Text(
+        "Home",
+        style: TextStyle(
+          color: Colors.deepOrange, 
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    ],
+  ),
+      // iconTheme: IconThemeData(opticalSize: 21),
+      
 
       actions: [
         _navButton(context, "Product", () {
@@ -75,6 +90,13 @@ class _MyHomePageState extends State<MyHomePage> {
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) => ConnectForSolutionsPage()),
+          );
+        }),
+
+        _navButton(context, "About Us", () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Aboutus()),
           );
         }),
 
@@ -185,7 +207,10 @@ class HeroSection extends StatelessWidget {
                     ),
                     SizedBox(width: 10),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ConnectForSolutionsPage()));
+                      },
                       child: const Text(
                         "Contact Sales",
                         style: TextStyle(color: Colors.white, fontSize: 16),
