@@ -102,7 +102,7 @@ class _ConnectForSolutionsPageState extends State<ConnectForSolutionsPage>
                 width: 500,
                 padding: const EdgeInsets.all(30),
                 decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 33, 33, 33),
+                  color: Colors.white,
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: [
                     BoxShadow(

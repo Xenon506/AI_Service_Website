@@ -103,14 +103,14 @@ class _MyHomePageState extends State<MyHomePage> {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: ElevatedButton(
-            style: ElevatedButton.styleFrom(backgroundColor: Colors.deepOrange),
+            style: ElevatedButton.styleFrom(backgroundColor: const Color.fromARGB(255, 251, 250, 250)),
             onPressed: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => GetStartedPage()),
               );
             },
-            child: const Text("Get Started"),
+            child: Text("Get Started", style: TextStyle(foreground: Paint()), ),
           ),
         ),
       ],
@@ -419,7 +419,7 @@ class FooterSection extends StatelessWidget {
         ]),
         _FooterColumn(
             title: "MORE", links: ["Partner With Us", "About Us", "Contact"]),
-      ],
+      ],  
     );
   }
 
