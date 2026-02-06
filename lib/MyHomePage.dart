@@ -1,10 +1,7 @@
 import 'package:contact_list/AboutUs.dart';
 import 'package:contact_list/ConnectForSolutionsPage.dart';
-import 'package:contact_list/HomePage_Contact.dart';
 import 'package:contact_list/Solutions.dart';
-import 'package:contact_list/exploreservice.dart';
 import 'package:contact_list/getstarted.dart';
-import 'package:contact_list/homepage_Pricing.dart';
 import 'package:contact_list/product.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart' show FaIcon, FontAwesomeIcons;
@@ -35,9 +32,15 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      // drawer: DrawerButtonIcon(),
-      // drawerScrimColor: Colors.black,
-      backgroundColor: Color.fromARGB(221, 227, 148, 69),
+       persistentFooterDecoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [Color(0xffffffff), Color(0xFFFF7A00) , Color(0xFFFFE1C4)],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+        ),
+      ),
+
+      // backgroundColor: Color.fromARGB(221, 74, 72, 72),
     );
   }
 
@@ -145,29 +148,39 @@ class HeroSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 100),
+      padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 0),
       decoration: const BoxDecoration(
         gradient: LinearGradient(
-          colors: [Color.fromARGB(255, 250, 220, 193), Color.fromARGB(255, 255, 255, 255)],
+          colors: [Color(0xffffffff), Color(0xFFFF7A00) , Color(0xFFFFE1C4)],
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
         ),
       ),
       child: Row(
         children: [
+
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              
               children: [
-                Text(
-                  "ARTIFICIAL INTELLIGENCE",
-                  style: TextStyle(
-                    fontSize: 24,
-                    color: Colors.deepOrange,
-                    letterSpacing: 2,
-                  ),
-                ),
-                SizedBox(height: 16),
+                // Padding(padding: EdgeInsetsGeometry.fromLTRB(10, 40, 10, 20)),
+                
+                    Padding(padding: EdgeInsetsGeometry.fromLTRB(0, 10, 80, 40)),
+                    Transform.translate(offset: Offset(0, -122),
+                    child: Text(
+                      
+                      "ARTIFICIAL INTELLIGENCE",
+                      style: TextStyle(
+                        fontSize: 24,
+                        color: Colors.deepOrange,
+                        letterSpacing: 2,
+                        
+                      ),
+                    ),
+                    ),
+
+                SizedBox(height: 36),
                 Text(
                   "Build,Deploy & Scale AI Solutions for Real-World Impact",
                   style: TextStyle(
@@ -176,12 +189,12 @@ class HeroSection extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                // const SizedBox(height: 20),
+                const SizedBox(height: 40),
                 const Text(
                   "From chatbots to predictive analytics,\nWe help businesses turn data into decisions.",
                   style: TextStyle(fontSize: 28, color: Colors.black54),
                 ),
-                const SizedBox(height: 30),
+                const SizedBox(height: 60),
                 Row(
                   children: [
                     ElevatedButton(
@@ -205,7 +218,7 @@ class HeroSection extends StatelessWidget {
                         style: TextStyle(color: Colors.white, fontSize: 16),
                       ),
                     ),
-                    SizedBox(width: 10),
+                    SizedBox(width: 30),
                     ElevatedButton(
                       onPressed: () {
                         Navigator.push(context,
@@ -324,7 +337,7 @@ Widget _card(IconData icon, String title) {
     padding: const EdgeInsets.all(24),
     decoration: BoxDecoration(
       color: const Color.fromARGB(255, 121, 101, 101),
-      borderRadius: BorderRadius.circular(250),
+      borderRadius: BorderRadius.circular(50),
       boxShadow: [BoxShadow(blurRadius: 20, color: Colors.black12)],
     ),
     child: Column(
@@ -615,7 +628,8 @@ class PricingSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 80),
+      width: double.infinity,
+      padding: const EdgeInsets.symmetric(vertical: 26),
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           colors: [Colors.white, Color(0xFFFFF3E8)],

@@ -106,7 +106,7 @@ class _ConnectForSolutionsPageState extends State<ConnectForSolutionsPage>
                   borderRadius: BorderRadius.circular(16),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.08),
+                      color: Colors.black.withValues(alpha: 0.08),
                       blurRadius: 20,
                       offset: const Offset(0, 10),
                     ),
@@ -157,7 +157,7 @@ class _ConnectForSolutionsPageState extends State<ConnectForSolutionsPage>
                       const SizedBox(height: 16),
 
                       DropdownButtonFormField<String>(
-                        value: _selectedSolution,
+                        initialValue: _selectedSolution,
                         decoration: const InputDecoration(
                           labelText: 'Select Required Solution',
                           prefixIcon: Icon(Icons.work_outline),
